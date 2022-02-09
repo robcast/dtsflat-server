@@ -1,0 +1,25 @@
+version: '3.5'
+
+services:
+  nginx:
+    image: nginx:stable-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - "VIRTUAL_HOST=${VIRTUAL_HOST:?Missing VIRTUAL_HOST}"
+      - "API_BASE_PATH=${API_BASE_PATH:-/dts}"
+      - "DOCUMENT_API_PATH=${DOCUMENT_API_PATH:-/documents}"
+      - "NAVIGATION_API_PATH=${NAVIGATION_API_PATH:-/navigation}"
+    volumes:
+      - ./nginx/templates/:/etc/nginx/templates/:ro
+      - dts-data:/var/www/dts-data/:ro
+    
+volumes:
+  dts-data:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${DTS_DATA_DIR:?Missing DTS_DATA_DIR}
+      o: bind

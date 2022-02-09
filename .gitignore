@@ -1,0 +1,4 @@
+/.project
+/data/
+/.env
+/docker-compose.override.yml
