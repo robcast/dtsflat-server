@@ -44,7 +44,7 @@ Optional configuration variables that can be added to the `.env` file:
 
 ## DTS API limitations
 
-- Currently no support for HTTP headers (could have limited support #1).
+- Currently no support for HTTP headers (could have limited support, see [#1](/../../issues/1)).
 - No support for ranges like `start` and `end` in the Document Endpoint and the Navigation Endpoint.
 - No support for result pagination with `max` in the Navigation Endpoint.
 - No support for customization of the result with `groupBy` or `exclude` in the Navigation Endpoint.
