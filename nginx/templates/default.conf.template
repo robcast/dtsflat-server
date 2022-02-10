@@ -4,8 +4,8 @@ server {
     
     server_name ${VIRTUAL_HOST};
 
-    access_log /var/log/nginx/access.log  main;
-    error_log /var/log/nginx/error.log debug;
+    #access_log /var/log/nginx/access.log main;
+    #error_log /var/log/nginx/error.log debug;
 
     # add CORS header to all responses
     add_header Access-Control-Allow-Origin "*";
@@ -27,7 +27,7 @@ server {
     }
 }
 
-# map ref and level arguments to add slash when set
+# map ref and level arguments to add a slash when set
 
 map $arg_ref $ref_path {
     default "";
